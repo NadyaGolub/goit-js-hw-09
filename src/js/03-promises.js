@@ -9,7 +9,7 @@ function onSubmitForm(e) {
 
   let delay = Number(form.delay.value);
 
-for (let i = 1; i <= form.delay.value; i += 1) {
+for (let i = 1; i <= form.amount.value; i += 1) {
   createPromise(i, delay)
   
   .then(({ position, delay }) => {

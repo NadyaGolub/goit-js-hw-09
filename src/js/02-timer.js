@@ -40,9 +40,7 @@ function convertMs(ms) {
   return { days, hours, minutes, seconds };
 }
 
-console.log(convertMs(2000)); // {days: 0, hours: 0, minutes: 0, seconds: 2}
-console.log(convertMs(140000)); // {days: 0, hours: 0, minutes: 2, seconds: 20}
-console.log(convertMs(24140000)); // {days: 0, hours: 6 minutes: 42, seconds: 20}
+
 
 function addLeadingZero(value) {
     return String(value).padStart(2, `0`)
@@ -65,28 +63,28 @@ let endDate = 0;
 start.addEventListener('click', () => {
     input.disabled = true;
     start.disabled = true;
-setInterval(() => {
+const interv = setInterval(() => {
    
     const currentDate = new Date().getTime();
     const difTime = endDate - currentDate;
     const timeComponents = convertMs(difTime);
     console.log(timeComponents);
 
-    dataDays.textContent = timeComponents.days;
+    dataDays.textContent = addLeadingZero(timeComponents.days);
     dataHours.textContent = timeComponents.hours;
     dataMinutes.textContent = timeComponents.minutes;
     dataSeconds.textContent = timeComponents.seconds;
     
-    dataDays.textContent = addLeadingZero(dataDays.textContent);
-    dataHours.textContent = addLeadingZero(dataHours.textContent);
-    dataMinutes.textContent = addLeadingZero(dataMinutes.textContent);
-    dataSeconds.textContent = addLeadingZero(dataSeconds.textContent);
+    // dataDays.textContent = addLeadingZero(dataDays.textContent);
+    // dataHours.textContent = addLeadingZero(dataHours.textContent);
+    // dataMinutes.textContent = addLeadingZero(dataMinutes.textContent);
+    // dataSeconds.textContent = addLeadingZero(dataSeconds.textContent);
 
     if (difTime <= 0) {
     input.disabled = false
       start.disabled = false
       
-      return clearInterval
+      return clearInterval(interv)
     }
 
 

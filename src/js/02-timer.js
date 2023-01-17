@@ -71,16 +71,13 @@ const interv = setInterval(() => {
     console.log(timeComponents);
 
     dataDays.textContent = addLeadingZero(timeComponents.days);
-    dataHours.textContent = timeComponents.hours;
-    dataMinutes.textContent = timeComponents.minutes;
-    dataSeconds.textContent = timeComponents.seconds;
+    dataHours.textContent = addLeadingZero(timeComponents.hours);
+    dataMinutes.textContent = addLeadingZero(timeComponents.minutes);
+    dataSeconds.textContent = addLeadingZero(timeComponents.seconds);
     
-    // dataDays.textContent = addLeadingZero(dataDays.textContent);
-    // dataHours.textContent = addLeadingZero(dataHours.textContent);
-    // dataMinutes.textContent = addLeadingZero(dataMinutes.textContent);
-    // dataSeconds.textContent = addLeadingZero(dataSeconds.textContent);
+  
 
-    if (difTime <= 0) {
+    if (difTime < 1000) {
     input.disabled = false
       start.disabled = false
       
